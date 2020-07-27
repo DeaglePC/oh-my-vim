@@ -86,7 +86,7 @@ map <Leader>o :call CurtineIncSw()<CR>
 class VimPluginTagbar(VimPluginBase):
     PLUGIN_NAME = "majutsushi/tagbar"
     COMMENT = "大纲视图"
-    OTHER_PKG = ["ctag"]
+    OTHER_PKG = ["ctags"]
     PLUGIN_CONFIG = """
 nmap <F9> :TagbarToggle<CR>
 " 启动时自动focus
@@ -143,4 +143,4 @@ set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
     CMD = "mv /tmp/.ycm_c-c++_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
-    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "python3-dev", "python3-devel", "python", "golang"]
+    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "python3-devel", "python", "golang"]
