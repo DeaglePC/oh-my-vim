@@ -143,4 +143,4 @@ set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
     CMD = "mv /tmp/.ycm_c-c++_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
-    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "python3-dev", "python", "golang"]
+    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "python3-dev", "python3-devel", "python", "golang"]
