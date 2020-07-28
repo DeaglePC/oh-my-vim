@@ -16,7 +16,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 class VimPluginClangFormat(VimPluginBase):
     PLUGIN_NAME = "rhysd/vim-clang-format"
-    OTHER_PKG = ["clang-format"]
+    OTHER_PKG = ["clang-format", "[dnf]git-clang-format"]
     COMMENT = "格式化代码"
     PLUGIN_CONFIG = """
 let g:clang_format#style_options = {
@@ -143,4 +143,33 @@ set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
     CMD = "mv /tmp/.ycm_c-c++_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
-    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "python3-devel", "python", "golang"]
+    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel", "python", "golang"]
+
+
+class VimPluginVimGo(VimPluginBase):
+    PLUGIN_NAME = "fatih/vim-go"
+    COMMENT = "golang"
+    CMD = "vim +GoInstallBinaries +qall"
+
+
+class VimPluginPolyglot(VimPluginBase):
+    PLUGIN_NAME = "sheerun/vim-polyglot"
+    COMMENT = "主题"
+
+
+class VimPluginColorEdge(VimPluginBase):
+    PLUGIN_NAME = "sainnhe/edge"
+    COMMENT = "edge 主题"
+    CMD = "cp -rf ~/.vim/bundle/edge/colors/ ~/.vim/"
+    PLUGIN_CONFIG = """
+" important!!
+set termguicolors
+
+" for dark version
+set background=dark
+" the configuration options should be placed before `colorscheme edge`
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
+
+colorscheme edge    
+"""

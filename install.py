@@ -40,6 +40,9 @@ def install():
         VimPluginTagbar(manager),
         VimPluginNerdTree(manager),
         VimPluginYCM(manager),
+        VimPluginVimGo(manager),
+        VimPluginPolyglot(manager),
+        VimPluginColorEdge(manager),
     ]
     installer = VimPluginInstaller(BASIC_CONFIG, pkg_manager, manager, plugins)
     installer.install_all()

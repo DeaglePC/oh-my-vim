@@ -99,6 +99,21 @@ class VimPluginInstaller:
             if plugin.cmd:
                 os.system(plugin.cmd)
 
+    @staticmethod
+    def _check_other_pkg(spkgm: str, pkg: str) -> str:
+        if pkg[0] != '[':
+            return pkg
+
+        idx = pkg.find(']')
+        if idx == -1:
+            return ""
+
+        tmp_sub_spkgm = pkg[:idx]
+        if spkgm in tmp_sub_spkgm:
+            return pkg[idx+1:]
+
+        return ""
+
     def install_other_pkg(self):
         """
         安装其他依赖
@@ -108,6 +123,9 @@ class VimPluginInstaller:
             if not plugin.other_pkg:
                 continue
             for pkg in plugin.other_pkg:
+                pkg = self._check_other_pkg(self._sys_pkg, pkg)
+                if not pkg:
+                    continue
                 cmd = " install -y ".join(["sudo " + self._sys_pkg, pkg])
                 print(cmd)
                 os.system(cmd)
