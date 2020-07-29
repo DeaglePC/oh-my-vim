@@ -9,5 +9,5 @@
 
 # 安装
 ```bash
-git clone https://github.com/DeaglePC/oh-my-vim.git && python3 oh-my-vim/install.py
+git clone https://github.com/DeaglePC/oh-my-vim.git && cd oh-my-vim && python3 install.py
 ```

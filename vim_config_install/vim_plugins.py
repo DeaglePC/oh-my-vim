@@ -163,7 +163,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
-    CMD = "mv /tmp/.ycm_cpp_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
+    CMD = "python3 ~/.vim/bundle/YouCompleteMe/install.py --all && mv .ycm_cpp_conf.py ~/.vim/bundle/YouCompleteMe/"
     OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel",
                  "python", "golang"]
 
