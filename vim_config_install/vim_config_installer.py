@@ -5,7 +5,7 @@ from .vim_plugin_base import VimPluginBase
 from .plugin_manager_base import PluginManagerBase
 
 
-class VimPluginInstaller:
+class Installer:
     """
     插件安装
     """

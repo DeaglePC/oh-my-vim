@@ -1,8 +1,8 @@
 # coding: utf-8
 from vim_config_install.plugin_manager_vundle import VundlePluginManager
-from vim_config_install.vim_plugins import *
 from vim_config_install.basic_config import BASIC_CONFIG
-from vim_config_install.vim_config_installer import VimPluginInstaller
+from vim_config_install.vim_config_installer import Installer
+from vim_config_install.vim_plugins import get_plugins
 
 
 def install():
@@ -10,23 +10,8 @@ def install():
     pkg_manager = input()
 
     manager = VundlePluginManager()
-    plugins = [
-        VimPluginAirline(manager),
-        VimPluginClangFormat(manager),
-        VimPluginOperatorUser(manager),
-        VimPluginFlyGrep(manager),
-        VimPluginAle(manager),
-        VimPluginIndentLine(manager),
-        VimPluginDelimitMate(manager),
-        VimPluginCurtineIncSw(manager),
-        VimPluginTagbar(manager),
-        VimPluginNerdTree(manager),
-        VimPluginYCM(manager),
-        VimPluginVimGo(manager),
-        VimPluginPolyglot(manager),
-        VimPluginColorEdge(manager),
-    ]
-    installer = VimPluginInstaller(BASIC_CONFIG, pkg_manager, manager, plugins)
+    plugins = get_plugins(manager)
+    installer = Installer(BASIC_CONFIG, pkg_manager, manager, plugins)
     installer.install_all()
 
     print("all done!")

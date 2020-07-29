@@ -6,6 +6,8 @@ class VimPluginBase:
     """
     每个插件的配置
     """
+    # 是否初始化安装
+    ENABLE = True
     # 插件名称
     PLUGIN_NAME = ""
     # 其他依赖依赖的包
@@ -18,6 +20,10 @@ class VimPluginBase:
     DOC = ""
     # 其他需要执行的命令
     CMD = ""
+
+    @property
+    def enable(self):
+        return self.ENABLE
 
     @property
     def plugin_name(self):

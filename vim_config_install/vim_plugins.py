@@ -1,5 +1,26 @@
 # coding: utf-8
+import sys
+import inspect
+
 from .vim_plugin_base import VimPluginBase
+
+
+def get_plugins(manager):
+    mod = sys.modules[__name__]
+
+    plugins = list()
+    for name, obj in inspect.getmembers(mod):
+        if inspect.isclass(obj):
+            if not name.startswith("VimPlugin") or name == "VimPluginBase":
+                continue
+
+            plugin = obj(manager)
+            if not plugin.enable:
+                continue
+
+            plugins.append(obj(manager))
+
+    return plugins
 
 
 class VimPluginAirline(VimPluginBase):
@@ -143,7 +164,8 @@ set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
     CMD = "mv /tmp/.ycm_cpp_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
-    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel", "python", "golang"]
+    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel",
+                 "python", "golang"]
 
 
 class VimPluginVimGo(VimPluginBase):
