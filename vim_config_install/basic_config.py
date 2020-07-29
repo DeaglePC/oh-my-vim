@@ -33,6 +33,17 @@ nmap <Leader>c "+yy
 " n 模式下粘贴系统剪切板的内容
 nmap <Leader>v "+p
 
+" buffer切换
+nmap <Leader>[ :bn<CR>
+nmap <Leader>] :bp<CR>
+
+nmap <Leader>nu :set nu<CR>
+nmap <leader>NU :set nonu<CR>
+
+" 自动保存
+let g:auto_save = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
+
 set incsearch   " 开启实时搜索
 set ignorecase  " 搜索时大小写不敏感
 
