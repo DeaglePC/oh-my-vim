@@ -136,13 +136,13 @@ let g:ycm_python_binary_path = 'python'
 
 " 关闭诊断信息
 let g:ycm_show_diagnostics_ui = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_c-c++_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_cpp_conf.py'
 let g:ycm_seed_identifiers_with_syntax = 1
 set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
-    CMD = "mv /tmp/.ycm_c-c++_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
+    CMD = "mv /tmp/.ycm_cpp_conf.py ~/.vim/bundle/YouCompleteMe/ && python3 ~/.vim/bundle/YouCompleteMe/install.py --all"
     OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel", "python", "golang"]
 
 
