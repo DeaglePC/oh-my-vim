@@ -172,6 +172,12 @@ class VimPluginVimGo(VimPluginBase):
     PLUGIN_NAME = "fatih/vim-go"
     COMMENT = "golang"
     CMD = "vim +GoInstallBinaries +qall"
+    PLUGIN_CONFIG = \
+"""
+" format code for golang
+autocmd FileType go nnoremap <buffer><Leader>cf :GoFmt<CR>
+autocmd FileType go vnoremap <buffer><Leader>cf :GoFmt<CR>
+"""
 
 
 class VimPluginPolyglot(VimPluginBase):

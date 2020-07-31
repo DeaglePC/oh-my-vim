@@ -40,6 +40,12 @@ nmap <Leader>] :bp<CR>
 nmap <Leader>nu :set nu<CR>
 nmap <leader>NU :set nonu<CR>
 
+" 调整分屏窗口大小
+nmap    w=  :resize +3<CR>
+nmap    w-  :resize -3<CR>
+nmap    w,  :vertical resize -3<CR>
+nmap    w.  :vertical resize +3<CR>
+
 " 自动保存
 let g:auto_save = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
