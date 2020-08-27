@@ -164,16 +164,25 @@ set completeopt=longest,menu
 let g:syntastic_ignore_files=[".*\.py$"]
 """
     CMD = "python3 ~/.vim/bundle/YouCompleteMe/install.py --all && mv .ycm_cpp_conf.py ~/.vim/bundle/YouCompleteMe/"
-    OTHER_PKG = ["cmake", "make", "build-essential", "gcc", "g++", "gcc-c++", "python3-dev", "[yum|dnf]python3-devel",
-                 "python", "golang"]
+    OTHER_PKG = [
+        "cmake",
+        "make",
+        "build-essential",
+        "gcc",
+        "g++",
+        "gcc-c++",
+        "python3-dev",
+        "[yum|dnf]python3-devel",
+        "python",
+        "golang",
+    ]
 
 
 class VimPluginVimGo(VimPluginBase):
     PLUGIN_NAME = "fatih/vim-go"
     COMMENT = "golang"
     CMD = "vim +GoInstallBinaries +qall"
-    PLUGIN_CONFIG = \
-"""
+    PLUGIN_CONFIG = """
 " format code for golang
 autocmd FileType go nnoremap <buffer><Leader>cf :GoFmt<CR>
 autocmd FileType go vnoremap <buffer><Leader>cf :GoFmt<CR>
@@ -201,3 +210,27 @@ let g:edge_disable_italic_comment = 1
 
 colorscheme edge    
 """
+
+
+class VimPluginNerdCommenter(VimPluginBase):
+    PLUGIN_NAME = "scrooloose/nerdcommenter"
+    COMMENT = "注释"
+    PLUGIN_CONFIG = """
+" 注释的时候自动加个空格, 强迫症必配
+" <leader>cc   加注释
+" <leader>cu   解开注释
+" 
+" <leader>c<space>  加上/解开注释, 智能判断
+" <leader>cy   先复制, 再注解(p可以进行黏贴)
+let g:NERDSpaceDelims=1    
+"""
+
+
+class VimPluginNerdGit(VimPluginBase):
+    PLUGIN_NAME = "Xuyuanp/nerdtree-git-plugin"
+    COMMENT = "文件浏览git标识"
+
+
+class VimPluginDevIcons(VimPluginBase):
+    PLUGIN_NAME = "ryanoasis/vim-devicons"
+    COMMENT = "文件浏览图标"
